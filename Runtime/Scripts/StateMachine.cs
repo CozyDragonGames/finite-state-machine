@@ -13,9 +13,8 @@ namespace KaynirGames.FSM
 
         private IState _currentState;
 
-        public StateMachine(IState defaultState)
+        public StateMachine()
         {
-            _currentState = defaultState;
             _currentTransitions = new List<Transition>();
             _anyTransitions = new List<Transition>();
             _transitions = new Dictionary<Type, List<Transition>>();
@@ -37,7 +36,7 @@ namespace KaynirGames.FSM
         {
             if (_currentState == state) return;
 
-            _currentState.OnStateExit();
+            _currentState?.OnStateExit();
             _currentState = state;
 
             if (!_transitions.TryGetValue(_currentState.GetType(), out _currentTransitions))
