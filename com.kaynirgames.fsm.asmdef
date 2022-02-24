@@ -1,0 +1,14 @@
+{
+    "name": "com.kaynirgames.fsm",
+    "rootNamespace": "KaynirGames.FSM",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

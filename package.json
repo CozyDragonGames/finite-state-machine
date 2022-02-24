@@ -1,0 +1,16 @@
+{
+  "name": "com.kaynirgames.fsm",
+  "version": "1.0.0",
+  "displayName": "Finite State Machine",
+  "description": "Простая реализация автомата конечных состояний.",
+  "unity": "2020.3",
+  "keywords": [
+    "kaynir, kaynirgames, finite state machine, fsm"
+  ],
+  "author": {
+    "name": "Denis Znov",
+    "email": "kaynir.games@gmail.com",
+    "url": "https://github.com/KaynirGames"
+  },
+  "type": "library"
+}
