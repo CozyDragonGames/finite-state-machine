@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace KaynirGames.FSM
+namespace CozyDragon.FSM
 {
     public class StateMachine
     {
@@ -24,19 +24,16 @@ namespace KaynirGames.FSM
         {
             Transition transition = GetTransition();
 
-            if (transition != null)
-            {
-                SetState(transition.ToState);
-            }
+            if (transition != null) SetState(transition.ToState);
 
-            _currentState?.OnStateUpdate();
+            _currentState?.UpdateState();
         }
 
         public void SetState(IState state)
         {
             if (_currentState == state) return;
 
-            _currentState?.OnStateExit();
+            _currentState?.ExitState();
             _currentState = state;
 
             if (!_transitions.TryGetValue(_currentState.GetType(), out _currentTransitions))
@@ -44,7 +41,7 @@ namespace KaynirGames.FSM
                 _currentTransitions = _emptyTransitions;
             }
 
-            _currentState.OnStateEnter();
+            _currentState.EnterState();
         }
 
         public void AddTransition(IState from, IState to, Func<bool> condition)

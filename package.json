@@ -1,16 +1,16 @@
 {
-  "name": "com.kaynirgames.fsm",
+  "name": "com.cozydragon.fsm",
   "version": "1.0.0",
   "displayName": "Finite State Machine",
   "description": "Простая реализация автомата конечных состояний.",
   "unity": "2020.3",
   "keywords": [
-    "kaynir, kaynirgames, finite state machine, fsm"
+    "cozydragon, finite state machine, fsm"
   ],
   "author": {
     "name": "Denis Znov",
     "email": "kaynir.games@gmail.com",
-    "url": "https://github.com/KaynirGames"
+    "url": "https://github.com/CozyDragonGames/finite-state-machine"
   },
   "type": "library"
 }

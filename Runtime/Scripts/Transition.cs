@@ -1,6 +1,6 @@
 using System;
 
-namespace KaynirGames.FSM
+namespace CozyDragon.FSM
 {
     public class Transition
     {

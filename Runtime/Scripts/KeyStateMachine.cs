@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace KaynirGames.FSM
+namespace CozyDragon.FSM
 {
     public class KeyStateMachine<TStateKey>
     {
@@ -8,41 +8,33 @@ namespace KaynirGames.FSM
 
         private IState _currentState;
 
-        public KeyStateMachine()
-        {
-            _states = new Dictionary<TStateKey, IState>();
-        }
+        public KeyStateMachine() => _states = new Dictionary<TStateKey, IState>();
 
         public void AddState(TStateKey stateKey, IState state)
         {
-            if (!_states.ContainsKey(stateKey))
-            {
-                _states.Add(stateKey, state);
-            }
+            if (_states.ContainsKey(stateKey)) return;
+            _states.Add(stateKey, state);
         }
 
         public void SetState(TStateKey stateKey)
         {
             if (!TryGetState(stateKey, out IState state)) return;
 
-            _currentState?.OnStateExit();
+            _currentState?.ExitState();
             _currentState = state;
-
-            _currentState.OnStateEnter();
+            _currentState.EnterState();
         }
 
-        public void Update() => _currentState?.OnStateUpdate();
+        public void Update() => _currentState?.UpdateState();
 
         private bool TryGetState(TStateKey stateKey, out IState state)
         {
-            if (_states.ContainsKey(stateKey))
-            {
-                state = _states[stateKey];
-                return true;
-            }
-
             state = null;
-            return false;
+
+            if (!_states.ContainsKey(stateKey)) return false;
+
+            state = _states[stateKey];
+            return true;
         }
     }
 }

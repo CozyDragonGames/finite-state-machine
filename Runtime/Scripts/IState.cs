@@ -1,11 +1,9 @@
-namespace KaynirGames.FSM
+namespace CozyDragon.FSM
 {
     public interface IState
     {
-        void OnStateEnter();
-
-        void OnStateUpdate();
-
-        void OnStateExit();
+        void EnterState();
+        void UpdateState();
+        void ExitState();
     }
 }
